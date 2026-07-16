@@ -43,7 +43,7 @@ def save_regression_model(model: LinearRegression, filename: str = "linear_regre
 
     """
     
-    # TODO: your code here
+    dump(model, filename)
 
 def evaluate_regression_model(model: LinearRegression, X_test: ArrayLike, y_test: ArrayLike):
     """
