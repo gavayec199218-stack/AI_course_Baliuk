@@ -28,40 +28,24 @@ def load_and_predict(X: ArrayLike, filename: str = "linear_regression_model.jobl
 
 def create_streamlit_app():
     """
-    Creates a Streamlit web application for making predictions with a simple regression model.
-
-    This function sets up a Streamlit app with a user interface for inputting a single feature 
-    value and making predictions using a pre-trained regression model. The app includes:
-    
-    - A title displayed at the top of the app.
-    - A slider for the user to select an input feature value within a specified range (-3.0 to 3.0).
-    - A "Predict value" button that, when clicked, triggers the prediction process.
-    - Upon clicking the "Predict value" button, the function:
-        - Calls `load_and_predict`, passing the selected feature as input, to load the regression model 
-          and make a prediction.
-        - Displays the prediction result on the app.
-        - Calls `visualize_difference`, passing the input feature and the prediction result, 
-          to visualize the difference between the predicted value and the actual value in the original dataset.
-
-    Note: This function does not return any value. It directly manipulates the Streamlit app's UI by 
-    writing content and rendering UI elements.
+    ...
     """
     st.title("Linear Regression Prediction")
 
-input_feature = st.slider(
-    "Select feature value",
-    min_value=-3.0,
-    max_value=3.0,
-    value=0.0,
-    step=0.1
-)
+    input_feature = st.slider(
+        "Select feature value",
+        min_value=-3.0,
+        max_value=3.0,
+        value=0.0,
+        step=0.1
+    )
 
-if st.button("Predict value"):
-    prediction = load_and_predict([[input_feature]])
+    if st.button("Predict value"):
+        prediction = load_and_predict([[input_feature]])
 
-    st.write(f"Predicted value: {prediction[0]:.2f}")
+        st.write(f"Predicted value: {prediction[0]:.2f}")
 
-    visualize_difference(input_feature, prediction[0])
+        visualize_difference(input_feature, prediction[0])
 
 def visualize_difference(input_feature: float, prediction: ArrayLike):
     """
