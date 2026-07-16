@@ -77,7 +77,7 @@ def visualize_difference(input_feature: float, prediction: ArrayLike):
     # Visualization
     fig = plt.figure(figsize=(6,4))
 
-    plt.scatter(X, y, color="gray", label="Dataset")
+    plt.scatter(X.flatten(), y, color="gray", label="Dataset")
     plt.scatter(input_feature, actual_target, color="blue", s=100, label="Actual")
     plt.scatter(input_feature, prediction, color="red", s=100, label="Predicted")
 
