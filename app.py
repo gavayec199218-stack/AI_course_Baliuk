@@ -72,7 +72,7 @@ def visualize_difference(input_feature: float, prediction: ArrayLike):
     actual_target = y[_index_of_closest(X, input_feature)]
 
     # Calculate difference
-    difference = actual_target - prediction
+    difference = actual_target - float(prediction)
 
     # Visualization
     fig = plt.figure(figsize=(6,4))
