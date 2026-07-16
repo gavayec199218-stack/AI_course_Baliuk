@@ -92,30 +92,30 @@ def visualize_difference(input_feature: float, prediction: ArrayLike):
 
     # Visualization
     fig = plt.figure(figsize=(6,4))
+
     plt.scatter(X, y, color="gray", label="Dataset")
+    plt.scatter(input_feature, actual_target, color="blue", s=100, label="Actual")
+    plt.scatter(input_feature, prediction, color="red", s=100, label="Predicted")
 
-plt.scatter(input_feature, actual_target, color="blue", s=100, label="Actual")
+    plt.plot(
+        [input_feature, input_feature],
+        [actual_target, prediction],
+        "k--"
+    )
 
-plt.scatter(input_feature, prediction, color="red", s=100, label="Predicted")
+    plt.annotate(
+        f"Difference: {difference:.2f}",
+        (input_feature, (actual_target + prediction) / 2),
+        xytext=(10, 10),
+        textcoords="offset points"
+    )
 
-plt.plot(
-    [input_feature, input_feature],
-    [actual_target, prediction],
-    "k--"
-)
+    plt.title("Actual vs Predicted")
+    plt.xlabel("Feature")
+    plt.ylabel("Target")
+    plt.grid(True)
+    plt.legend()
 
-plt.annotate(
-    f"Difference: {difference:.2f}",
-    (input_feature, (actual_target + prediction) / 2),
-    xytext=(10, 10),
-    textcoords="offset points"
-)
-
-plt.title("Actual vs Predicted")
-plt.xlabel("Feature")
-plt.ylabel("Target")
-plt.grid(True)
-plt.legend()
     st.pyplot(fig)
 
 # This is a helper function. No need to edit it
