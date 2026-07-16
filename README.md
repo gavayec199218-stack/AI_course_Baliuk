@@ -34,4 +34,4 @@ The application is deployed using Streamlit Cloud.
 
 Live demo:
 
-https://aicoursebaliuk-e43jup6njebbq17t79hvg.streamlit.app
+[https://aicoursebaliuk-e43jup6njebbq17t79hvg.streamlit.app](https://aicoursebaliuk-e43jype6njebbqi7t79hvg.streamlit.app/)
