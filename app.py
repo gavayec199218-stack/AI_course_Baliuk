@@ -46,20 +46,22 @@ def create_streamlit_app():
     Note: This function does not return any value. It directly manipulates the Streamlit app's UI by 
     writing content and rendering UI elements.
     """
-    # TODO: your code here
+    st.title("Linear Regression Prediction")
 
-    # Streamlit app title
+input_feature = st.slider(
+    "Select feature value",
+    min_value=-3.0,
+    max_value=3.0,
+    value=0.0,
+    step=0.1
+)
 
-    # User input for new prediction using a slider
+if st.button("Predict value"):
+    prediction = load_and_predict([[input_feature]])
 
-    # Button to make a prediction
+    st.write(f"Predicted value: {prediction[0]:.2f}")
 
-        # 1. Call load_and_predict functions.
-        # Make sure you convert the input_feature to a matrix before calling load_and_predict, e.g., load_and_predict([[input_feature]])
-
-        # 2. Display the prediction.
-
-        # 4. Call visualize_difference to display a plot visualizing the difference between actual and perdicted value.
+    visualize_difference(input_feature, prediction[0])
 
 def visualize_difference(input_feature: float, prediction: ArrayLike):
     """
